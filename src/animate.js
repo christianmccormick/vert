@@ -39,9 +39,13 @@ const animateOnAxis = (axis, value) => {
 
     if (time <= 1 && time >= 0) {
       if (axis === 'x') {
-        window.scrollTo(initialValue + (valueWithinBounds - initialValue) * easeInOutQuad(time), 0);
+        window.scrollTo({
+          left: initialValue + (valueWithinBounds - initialValue) * easeInOutQuad(time),
+        });
       } else if (axis === 'y') {
-        window.scrollTo(0, initialValue + (valueWithinBounds - initialValue) * easeInOutQuad(time));
+        window.scrollTo({
+          top: initialValue + (valueWithinBounds - initialValue) * easeInOutQuad(time),
+        });
       }
     } else {
       activeAnimations.splice(i, 1);
