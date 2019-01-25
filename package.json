@@ -4,7 +4,10 @@
   "description": "The swiss army knife of browser scrolling.",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/_mocha --compilers js:@babel/register"
+    "test": "node_modules/.bin/_mocha --require @babel/register",
+    "watch": "npx webpack --config webpack.config.js --mode development -w",
+    "start": "webpack-dev-server --open --mode development",
+    "build": "npx webpack --config webpack.config.js --mode production"
   },
   "author": "Christian McCormick",
   "license": "MIT",
@@ -13,10 +16,22 @@
     "url": "https://github.com/christianmccormick/vert.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/register": "^7.0.0-beta.40",
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "chai": "^4.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "mocha": "^5.2.0",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5"
   }
 }

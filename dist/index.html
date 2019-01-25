@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 120%;
+        height: 500px;
+        color: #FFF;
+        font-size: 48px;
+        font-weight: bold;
+      }
+
+      div:nth-child(odd) {
+        background-color: #546A76;
+      }
+
+      div:nth-child(even) {
+        background-color: #88A0A8;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      1
+    </div>
+    <div id="itemTwo">
+      2
+    </div>
+    <div class="item">
+      3
+    </div>
+    <div class="item">
+      4
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+      vert.start();
+
+      const any = vert.xy.any(function(coords, direction) {
+        console.log(`any: ${coords.x}, ${coords.y}, dir: ${direction}`);
+      });
+
+      // const lt = vert.y.lt(100, function(coords, direction) {
+      //   console.log(`lt: ${coords.x}, ${coords.y}, dir: ${direction}`);
+      // });
+
+      // const eq = vert.y.eq(100, function(coords, direction) {
+      //   console.log(`eq: ${coords.x}, ${coords.y}, dir: ${direction}`);
+      // });
+
+      // const gt = vert.y.gt(100, function(coords, direction) {
+      //   console.log(`gt: ${coords.x}, ${coords.y}, dir: ${direction}`);
+      // });
+
+      // const between = vert.y.between(50, 100, function(coords, direction) {
+      //   console.log(`between: ${coords.x}, ${coords.y}, dir: ${direction}`);
+      // });
+      // vert.animate(500);
+
+      // setTimeout(function() {
+      // vert.animate(100);
+      //   // vert.stop();
+      //   // any();
+      //   // lt();
+      //   // eq();
+      //   // gt();
+      //   // eq();
+      //   setTimeout(function() {
+      //     vert.animate(2000);
+      //   //   vert.start();
+      //   }, 2500);
+      // }, 1000);
+    </script>
+  </body>
+</html>
