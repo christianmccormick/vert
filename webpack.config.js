@@ -3,12 +3,12 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
   },
   output: {
-    filename: 'main.js',
+    filename: 'vert.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'vert'
+    library: 'vert',
   },
   module: {
     rules: [

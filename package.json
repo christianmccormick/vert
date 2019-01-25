@@ -2,7 +2,15 @@
   "name": "vert",
   "version": "0.1.0",
   "description": "The swiss army knife of browser scrolling.",
-  "main": "index.js",
+  "keywords": [
+    "scroll",
+    "browser",
+    "dom",
+    "event",
+    "listener",
+    "animate"
+  ],
+  "main": "src/index.js",
   "scripts": {
     "test": "node_modules/.bin/_mocha --require @babel/register",
     "watch": "npx webpack --config webpack.config.js --mode development -w",
@@ -11,10 +19,7 @@
   },
   "author": "Christian McCormick",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/christianmccormick/vert.git"
-  },
+  "repository": "christianmccormick/vert",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
