@@ -9,15 +9,22 @@ const easeInOutQuad = (t) => {
   return -1 + (4 - 2 * t) * t;
 };
 
-export const animate = (value) => {
+const animateOnAxis = (axis, value) => {
   let start;
   let duration = 1000;
 
-  const initialValue = getCoords().y;
+  const initialValue = getCoords()[axis];
   let valueWithinBounds = value;
 
-  if (value > document.body.scrollHeight - document.documentElement.clientHeight) {
-    valueWithinBounds = document.body.scrollHeight - document.documentElement.clientHeight;
+  let axisDimension = 0;
+  if (axis === 'x') {
+    axisDimension = document.body.scrollWidth - document.documentElement.clientWidth;
+  } else if (axis === 'y') {
+    axisDimension = document.body.scrollHeight - document.documentElement.clientHeight;
+  }
+
+  if (value > axisDimension) {
+    valueWithinBounds = axisDimension;
   } else if (value < 0) {
     valueWithinBounds = 0;
   }
@@ -36,6 +43,11 @@ export const animate = (value) => {
       activeAnimations.splice(i, 1);
     }
   });
+};
+
+export const animate = {
+  x: value => animateOnAxis('x', value),
+  y: value => animateOnAxis('y', value),
 };
 
 export const animations = () => activeAnimations;

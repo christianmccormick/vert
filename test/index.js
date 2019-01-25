@@ -49,8 +49,9 @@ describe('stop', () => {
 });
 
 describe('animate', () => {
-  it('should be a function', () => {
-    expect(animate).to.be.a.instanceOf(Function);
+  it('should be an object with x and y methods', () => {
+    expect(animate.x).to.be.a.instanceOf(Function);
+    expect(animate.y).to.be.a.instanceOf(Function);
   });
 });
 
