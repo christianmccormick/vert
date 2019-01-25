@@ -59,11 +59,23 @@ export const addListener = (xCondition, yCondition, callback) => {
     xCondition,
     yCondition,
     callback: () => {
-      if (xCondition && xCondition(getCoords().x)) {
+      const xConditionValid = xCondition && xCondition(getCoords().x);
+      const yConditionValid = yCondition && yCondition(getCoords().y);
+
+      if (xConditionValid && yConditionValid) {
+        callback(getCoords(), getDirection());
+        /**
+         * If both x and y conditions exist, assume that
+         * an xy listener is being used and return immediately
+         */
+        return;
+      }
+
+      if (xConditionValid) {
         callback(getCoords(), getDirection());
       }
 
-      if (yCondition && yCondition(getCoords().y)) {
+      if (yConditionValid) {
         callback(getCoords(), getDirection());
       }
     },
