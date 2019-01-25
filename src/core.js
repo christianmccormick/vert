@@ -62,12 +62,33 @@ export const addListener = (xCondition, yCondition, callback) => {
       const xConditionValid = xCondition && xCondition(getCoords().x);
       const yConditionValid = yCondition && yCondition(getCoords().y);
 
-      if (xConditionValid && yConditionValid) {
-        callback(getCoords(), getDirection());
+      // xy listeners
+      if (xCondition && yCondition) {
+        if (xConditionValid && yConditionValid) {
+          callback(getCoords(), getDirection());
+          // Prevent calling multiple callbacks for each valid condition
+          return;
+        }
+
         /**
-         * If both x and y conditions exist, assume that
-         * an xy listener is being used and return immediately
+         * Since this may be a custom xy listener with a condition for each axis,
+         * check the scroll direction first. This ensures that scrolling on the x axis
+         * will not trigger the y callback if it is false.
          */
+        if (getDirection() === DIRECTIONS.LEFT || getDirection() === DIRECTIONS.RIGHT) {
+          if (xConditionValid) {
+            callback(getCoords(), getDirection());
+          }
+        }
+
+        // Likewise, do the same check for the y axis
+        if (getDirection() === DIRECTIONS.UP || getDirection() === DIRECTIONS.DOWN) {
+          if (yConditionValid) {
+            callback(getCoords(), getDirection());
+          }
+        }
+
+        // Prevent further callbacks from being fired
         return;
       }
 

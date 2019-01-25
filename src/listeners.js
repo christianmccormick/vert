@@ -27,5 +27,5 @@ export default {
   xy: {
     any: callback => addListener(any, any, callback),
     custom: (condition1, condition2, callback) => addListener(condition1, condition2, callback),
-  }
+  },
 };
