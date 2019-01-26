@@ -1,9 +1,11 @@
-# vert
+# vert (beta)
 
 ![npm](https://img.shields.io/npm/v/vert.svg)
 ![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/vert.svg)
 
 A minimal, super simple browser scroll library with a convenient set of easy-to-use listeners and animate methods. Vert is optimized using requestAnimationFrame and provides the ability to start/stop itself and remove listeners for added performance tuning.
+
+Please note that this library is still in beta and small issues may arise. If you come across any bugs, please create a new issue and describe your problem in detail along with a sample of the code that causes the bug. Thanks and enjoy!
 
 ## Install
 
