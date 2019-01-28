@@ -15,6 +15,16 @@ npm install vert --save
 
 ## Usage
 
+If you are using webpack or another bundler, you can import the entire library at once or import individual methods and objects as needed. If not, you can require `dist/vert.js` and access methods and objects on the `vert` global. The following examples assume you are using the import all/global version of vert.
+
+```
+import * as vert from 'vert';
+
+// OR
+
+import { start as startVert } from 'vert';
+```
+
 Before setting up any listeners, vert must first be started.
 
 ```
